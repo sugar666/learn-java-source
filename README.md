@@ -5,5 +5,6 @@
 
 - [java基础](docs/java基础.md)
 - 集合
-  - [ArrayLIst](docs/集合/ArrayList.md)
+  - [ArrayList](docs/集合/ArrayList.md)
+  - [LinkedList](docs/集合/LinkedList.md)
 
