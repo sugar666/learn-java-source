@@ -7,4 +7,5 @@
 - 集合
   - [ArrayList](docs/集合/ArrayList.md)
   - [LinkedList](docs/集合/LinkedList.md)
+  - [HashMap](docs/集合/HashMap.md)
 
