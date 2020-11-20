@@ -1,5 +1,9 @@
 # 集合 -- HashMap
-
+    首先是数组的长度，到达了影响因子，数组就会扩容
+    Hash值重复，就会变成链表，一般不会变成红黑树（红黑树的空间占用大）
+ 
+-------
+   
 HashMap底层的数据结构主要是 ==数组 + 链表 + 红黑数==
 
 - 当链表的长度大于等于8时，链表会转换成红黑树
@@ -71,18 +75,18 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 ```java
 public HashMap(int initialCapacity, float loadFactor) {
-if (initialCapacity < 0)
-    throw new IllegalArgumentException("Illegal initial capacity: " +
-                                       initialCapacity);
-if (initialCapacity > MAXIMUM_CAPACITY)
-    initialCapacity = MAXIMUM_CAPACITY;
-if (loadFactor <= 0 || Float.isNaN(loadFactor))
-    throw new IllegalArgumentException("Illegal load factor: " +
-                                       loadFactor);
-this.loadFactor = loadFactor;
-    
-// 指定了初始容量是，使用tableSizeFor进行容量的设置，一般在进行扩容的时候，使用的是resize()方法，resize()进行扩容时，threshold = 数组大小 * 0.75
-this.threshold = tableSizeFor(initialCapacity);
+    if (initialCapacity < 0)
+        throw new IllegalArgumentException("Illegal initial capacity: " +
+                                           initialCapacity);
+    if (initialCapacity > MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
+    if (loadFactor <= 0 || Float.isNaN(loadFactor))
+        throw new IllegalArgumentException("Illegal load factor: " +
+                                           loadFactor);
+    this.loadFactor = loadFactor;
+        
+    // 指定了初始容量是，使用tableSizeFor进行容量的设置，一般在进行扩容的时候，使用的是resize()方法，resize()进行扩容时，threshold = 数组大小 * 0.75
+    this.threshold = tableSizeFor(initialCapacity);
 }
 
 /**
@@ -93,7 +97,7 @@ this.threshold = tableSizeFor(initialCapacity);
 * @throws IllegalArgumentException if the initial capacity is negative.
 */
 public HashMap(int initialCapacity) {
-this(initialCapacity, DEFAULT_LOAD_FACTOR);
+    this(initialCapacity, DEFAULT_LOAD_FACTOR);
 }
 
 /**
@@ -101,7 +105,7 @@ this(initialCapacity, DEFAULT_LOAD_FACTOR);
 * (16) and the default load factor (0.75).
 */
 public HashMap() {
-this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
+    this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
 }
 ```
 
@@ -109,13 +113,13 @@ this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
 
 ```java
 static final int tableSizeFor(int cap) {
-int n = cap - 1;
-n |= n >>> 1;
-n |= n >>> 2;
-n |= n >>> 4;
-n |= n >>> 8;
-n |= n >>> 16;
-return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    int n = cap - 1;
+    n |= n >>> 1;
+    n |= n >>> 2;
+    n |= n >>> 4;
+    n |= n >>> 8;
+    n |= n >>> 16;
+    return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
 }
 ```
 
@@ -294,7 +298,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
             V oldValue = e.value;
             if (!onlyIfAbsent || oldValue == null)
                 e.value = value;
-            // 当前节点移动到队尾
+            // 当前节点移动到队尾(在LinkedHashMap中实现)
             afterNodeAccess(e);
             return oldValue;
         }
@@ -303,7 +307,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
     //如果kv的实际大小大于扩容的门槛，开始扩容
     if (++size > threshold)
         resize();
-    // 删除不经常使用的元素
+    // 删除不经常使用的元素（在LinkedHashMap中实现）
     afterNodeInsertion(evict);
     return null;
 }
