@@ -8,6 +8,6 @@
   - [ArrayList](docs/集合/ArrayList.md)
   - [LinkedList](docs/集合/LinkedList.md)
   - [HashMap](docs/集合/HashMap.md)
-- [TreeMap](docs/集合/TreeMap.md)
+  - [TreeMap](docs/集合/TreeMap.md)
   - [LinkedHashMap](docs/集合/LinkedHashMap.md)
 
