@@ -13,6 +13,8 @@
   - [TreeSet](java-source/集合/TreeSet.md)
   - [常见的集合中的坑](java-source/集合/常见的集合中的坑.md)
   - [集合在java7和java8中的不同](java-source/集合/集合在java7和java8中的不同.md)
+- 并发集合
+  - [CopyOnWriteArrayList](java-source/并发集合/CopyOnWriteArrayList.md)
 
 ## 面试
 
