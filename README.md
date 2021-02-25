@@ -16,6 +16,11 @@
 - 并发集合
   - [CopyOnWriteArrayList](java-source/并发集合/CopyOnWriteArrayList.md)
   - [ConcurrentHashMap](java-source/并发集合/ConcurrentHashMap.md)
+- 队列
+  - [LinkedBlockingQueue](java-source/队列/LinkedBlockingQueue.md)
+  - [SynchronousQueue](java-source/队列/SynchronousQueue.md)
+  - [DelayQueue](java-source/队列/DelayQueue.md)
+  - [ArrayBlockingQueue](java-source/队列/ArrayBlockingQueue.md)
 - 线程
   - [Thread](java-source/线程/Thread.md)
 
